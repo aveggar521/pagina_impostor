@@ -119,17 +119,23 @@ function mostrarPantalla(id) {
 // ===============================
 function iniciarJuego() {
   jugadores = [];
-  jugadores.push(document.getElementById("jugador1").value);
-  jugadores.push(document.getElementById("jugador2").value);
-  jugadores.push(document.getElementById("jugador3").value);
 
-  if (jugadores.includes("")) {
-    alert("Todos los jugadores deben tener nombre");
-    return;
-  }
+  const inputs = document.querySelectorAll(".inputJugador");
+
+  inputs.forEach(input => {
+    if (input.value.trim() === "") {
+      alert("Todos los jugadores deben tener nombre");
+      jugadores = [];
+      return;
+    }
+    jugadores.push(input.value.trim());
+  });
+
+  if (jugadores.length < 3) return;
 
   empezarPartida();
 }
+
 
 // ===============================
 // INICIAR PARTIDA
@@ -226,6 +232,28 @@ function reiniciarJuego() {
   impostor = "";
 
   mostrarPantalla("pantallaInicio");
+}
+function crearInputs() {
+  const cantidad = parseInt(document.getElementById("numJugadores").value);
+  const contenedor = document.getElementById("inputsJugadores");
+
+  if (cantidad < 3) {
+    alert("Debe haber al menos 3 jugadores");
+    return;
+  }
+
+  contenedor.innerHTML = "";
+
+  for (let i = 1; i <= cantidad; i++) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Jugador " + i;
+    input.className = "inputJugador";
+    contenedor.appendChild(input);
+    contenedor.appendChild(document.createElement("br"));
+  }
+
+  document.getElementById("btnIniciar").style.display = "inline-block";
 }
 
 
