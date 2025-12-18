@@ -217,18 +217,21 @@ function mostrarResultado() {
 // REINICIAR PARTIDA
 // ===============================
 function reiniciarJuego() {
-  // Limpiar resultado anterior
+  // Limpiar textos visibles
   document.getElementById("resultado").innerText = "";
+  document.getElementById("infoJugador").innerText = "";
+  document.getElementById("nombreJugador").innerText = "";
 
-  // Reiniciar variables de partida
+  // Reiniciar variables
   impostor = "";
   animeSeleccionado = null;
   personajeSeleccionado = null;
   jugadorActual = 0;
 
-  // Empezar nueva partida con los mismos jugadores
+  // Empezar nueva partida
   empezarPartida();
 }
+
 
 function crearInputs() {
   const cantidad = parseInt(document.getElementById("numJugadores").value);
