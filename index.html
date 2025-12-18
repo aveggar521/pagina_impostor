@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Impostor Anime</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="javascript.js"></script>
+</head>
+
+<body>
+
+    <!-- PANTALLA INICIO -->
+    <div id="pantallaInicio" class="pantalla">
+        <h2>Juego del Impostor</h2>
+        <input id="jugador1" placeholder="Jugador 1"><br>
+        <input id="jugador2" placeholder="Jugador 2"><br>
+        <input id="jugador3" placeholder="Jugador 3"><br><br>
+        <button onclick="iniciarJuego()">Iniciar Juego</button>
+    </div>
+
+    <!-- PANTALLA JUGADOR -->
+    <div id="pantallaJugador" class="pantalla" style="display:none">
+        <h2 id="nombreJugador"></h2>
+        <p id="infoJugador"></p>
+        <button onclick="mostrarInfo()">Ver información</button>
+        <button onclick="siguienteJugador()">Siguiente jugador</button>
+    </div>
+
+   <!-- PANTALLA FINAL -->
+<div id="pantallaFinal" class="pantalla" style="display:none">
+  <h2>Fin del juego</h2>
+  <p id="resultado"></p>
+  <button onclick="mostrarResultado()">Mostrar resultado</button><br><br>
+  <button onclick="reiniciarJuego()">Jugar otra partida</button>
+</div>
+
+
+
+</body>
+
+</html>
