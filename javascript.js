@@ -41,8 +41,8 @@ let base = [
       { "nombre": "Mikasa Ackerman", "sexo": "Femenino" },
       { "nombre": "Armin Arlert", "sexo": "Masculino" }
     ]
-    },
-    {
+  },
+  {
     "anime": "Fullmetal Alchemist: Brotherhood",
     "fecha": "2009",
     "generos": ["Acción", "Aventura", "Fantasía"],
@@ -217,22 +217,19 @@ function mostrarResultado() {
 // REINICIAR PARTIDA
 // ===============================
 function reiniciarJuego() {
-  // Limpiar campos de jugadores
-  document.getElementById("jugador1").value = "";
-  document.getElementById("jugador2").value = "";
-  document.getElementById("jugador3").value = "";
-
-  // Limpiar contenido del resultado
+  // Limpiar resultado anterior
   document.getElementById("resultado").innerText = "";
 
-  // Reiniciar variables de la partida
+  // Reiniciar variables de partida
+  impostor = "";
   animeSeleccionado = null;
   personajeSeleccionado = null;
   jugadorActual = 0;
-  impostor = "";
 
-  mostrarPantalla("pantallaInicio");
+  // Empezar nueva partida con los mismos jugadores
+  empezarPartida();
 }
+
 function crearInputs() {
   const cantidad = parseInt(document.getElementById("numJugadores").value);
   const contenedor = document.getElementById("inputsJugadores");
